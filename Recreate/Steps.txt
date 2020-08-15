@@ -1,0 +1,35 @@
+1) login to docker in cloud shell.
+2) clone project:
+	link: https://gitlab.com/Nitin.Singh01/kubernetes-deploymentstatergies.git
+3) check details :
+	Commands:
+	kubectl get pods
+	kubectl get deployment
+	kubectl get services
+4) run command 
+	cd kebernetes-deploymentstrategies
+	kubctl apply -f application.yml
+
+5) check details:
+	Commands:
+	kubectl get pods
+	kubectl get deployment
+	kubectl get services
+6) open any browser, fetch load balancer external IP(kubectl get services) & hit below mentioned URL:
+	hhtp://<loadbalancer-ExternalIP>:8080/Hello
+
+7) Open application.yml in VI editor and add mentioned changes(Refer application-Recreate.yml file):
+	i) strategy:
+	     type: Recreate
+	ii) change image name to 
+		docker.io/nitinsingh01/app2
+8) run command 
+	
+	kubctl apply -f application.yml
+9) check details:
+	Commands:
+	kubectl get pods
+	kubectl get deployment
+	kubectl get services
+10) open any browser, fetch load balancer external IP & hit below mentioned URL:
+	hhtp://<loadbalancer-ExternalIP>:8080/Hello

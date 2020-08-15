@@ -1,0 +1,38 @@
+1) login to docker in cloud shell.
+2) clone project:
+	link: https://gitlab.com/Nitin.Singh01/kubernetes-deploymentstatergies.git
+3) check details :
+	Command: kubectl get all
+4) run command 
+	cd kebernetes-deploymentstrategies/blue-Green
+	kubctl apply -f blue-app1.yml
+
+5) check details:
+	Command: kubectl get all
+6) open any browser, fetch load balancer external IP for app1(kubectl get services) & hit below mentioned URL:
+	http://<loadbalancer-ExternalIP>:8080/Hello
+	O/P: hello Master
+	
+7) run command 
+	cd kebernetes-deploymentstrategies/blue-Green
+	Command: kubctl apply -f blue-app1.yml
+
+8) check details:
+	Commands:
+	kubectl get pods
+	kubectl get deployment
+	kubectl get services
+9) open any browser, fetch load balancer external IP for green-app1(kubectl get services) & hit below mentioned URL:
+	http://<loadbalancer-ExternalIP>:8080/Hello
+	O/P: Hello King
+10) Now we are required to delete older version of app and green service which we created for testing. Run command:
+	Command: kubectl delete deployment.apps/app1 service/app2-green 
+ 
+	
+11) check details:
+	Command: kubectl get all
+	
+12) To check only updated application is running, fetch load balancer external IP for app1(kubectl get services) & hit below mentioned URL(Check for updated response):
+	http://<loadbalancer-ExternalIP>:8080/Hello
+	O/P: Hello King
+	
